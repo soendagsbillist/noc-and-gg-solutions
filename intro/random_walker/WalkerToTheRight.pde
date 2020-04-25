@@ -14,17 +14,18 @@ class WalkerToTheRight {
 	point(xpos, ypos);
     }
 
+// somehow ypos++ step moves walker down and y-- up
     void step() {
 	float choice = random(1);
 
-	if (choice < 0.5) {
+	if (choice < 0.5) { // 50%
 	    xpos++;
-	} else if (choice < 0.6) {
+	} else if (choice < 0.6) { // 10%
 	    xpos--;
-	} else if (choice < 0.7) {
-	    ypos--;
-	} else {
+	} else if (choice < 0.9) { // 30%
 	    ypos++;
+	} else { //10%
+	    ypos--;
 	}
     }
 }
