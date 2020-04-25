@@ -12,15 +12,9 @@ class Walker {
     }
 
     void step() {
-	int choice = int(random(4));
-	if (choice == 0) {
-	    xpos++;
-	} else if (choice == 1) {
-	    xpos--;
-	} else if (choice == 2) {
-	    ypos--;
-	} else if (choice == 3) {
-	    ypos++;
-	}
+	float stepx = random(-1, 2);
+	float stepy = random(-1, 2);
+	xpos += stepx;
+	ypos += stepy;
     }
 }
