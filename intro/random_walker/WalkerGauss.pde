@@ -2,13 +2,10 @@
 // The lengt of a step is determined by normal distribution as well as
 // the directin and starting point on the canvas
 
-import java.util.Random;
-
 class WalkerGauss {
-    int xpos, ypos;
-    Random generator;
+    float xpos, ypos;
 
-    WalkerGauss (int xpos_, int ypos_) {
+    WalkerGauss (float xpos_, float ypos_) {
 	xpos = xpos_;
 	ypos = ypos_;
     }
