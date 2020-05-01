@@ -3,7 +3,7 @@ WalkerToTheRight wr;
 WalkerDynamic wd;
 WalkerGauss wg;
 WalkerMonteCarlo wc;
-WalkerTest wt;
+WalkerNoise wn;
 
 void setup() {
     size(800, 800);
@@ -17,13 +17,11 @@ void setup() {
 
     wg = new WalkerGauss(xSpawn, ySpawn);
     wc = new WalkerMonteCarlo(xSpawn, ySpawn);
-    wt = new WalkerTest();
-    background(0);
+    wn = new WalkerNoise(-10, 10);
+    background(255);
 }
 
 void draw() {
-    wc.step();
-    wc.render();
-    wg.step();
-    wg.render();
+    wn.step();
+    wn.render();
 }
