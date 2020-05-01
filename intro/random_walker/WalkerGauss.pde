@@ -19,22 +19,24 @@ class WalkerGauss {
     }
 
     void step() {
-	generator = new Random();
-	
-	float choice = (float) generator.nextGaussian();
+	float choice = randomGaussian();
 	float stepSize = randomGaussian();
+	float stepX = randomGaussian();
+	float stepY = randomGaussian();
+
 	float sd = 1;
 	float mean = 0.5;
 
 	stepSize = (stepSize * sd) + mean;
-	
 	choice = (choice * sd) + mean;
 
+	stepX *= stepSize;
+	stepY *= stepSize;
 
 	if (choice < 0.5) {
-	    xpos += stepSize;
+	    xpos += stepX;
 	} else {
-	    ypos += stepSize;
+	    ypos += stepY;
 	}
 
 	xpos = constrain(xpos, 0, width-1);
