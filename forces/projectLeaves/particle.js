@@ -5,7 +5,7 @@ Particle = function(x, y) {
   this.target = createVector(x, y);
   this.maxSpeed = 20;
   this.maxForce = 0.5;
-  this.img = loadImage('./leaf.png');
+  this.img = loadImage('./assets/leaf.png');
   this.G = 5;
   this.mass = 1;
 }
