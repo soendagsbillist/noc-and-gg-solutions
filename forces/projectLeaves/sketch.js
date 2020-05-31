@@ -21,7 +21,7 @@ function setup() {
   bg = loadImage("./assets/bg.png");
   image(bg, 0, 0);
 
-  let points = font.textToPoints('effectvoll', 0, 200, 150);
+  let points = font.textToPoints('effektvoll', 0, 200, 150);
   pt = new Particle(0, 200);
 
   points.forEach(pt => {
@@ -32,6 +32,11 @@ function setup() {
 
 function draw() {
   background(bg);
+
+  textSize(50);
+  fill(255);
+  text('To make it fun keep the mouse button pressed.', 0, windowHeight / 2);
+  text('Release it to bring the letters back.', 0, windowHeight / 2 + 50);
    
   leaves.forEach(leaf => {
     leaf.render();
