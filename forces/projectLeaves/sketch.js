@@ -14,8 +14,10 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(30);
+
   w = createVector(0, 0);
   angle = 0;
+
   bg = loadImage("./assets/bg.png");
   image(bg, 0, 0);
 
@@ -25,14 +27,11 @@ function setup() {
   points.forEach(pt => {
     let leaf = new Particle(pt.x, pt.y);
     leaves.push(leaf);
-    let windForce = createWind(w);
-    let force = windForce.next().value;
-    flowfields.push(force);
   });
 }
 
 function draw() {
-  background(img);
+  background(bg);
    
   leaves.forEach(leaf => {
     leaf.render();
@@ -40,12 +39,12 @@ function draw() {
   });
   
   if(mouseEvent) {
-    const windP = createWind(w);
-    let forceP = windP.next().value;
+    const wind = createWind(w);
+    let force = wind.next().value;
 
     leaves.forEach(leaf => {
       w.add(0, random(-3, 4));
-      leaf.applyForce(forceP.add(w));
+      leaf.applyForce(force.add(w));
       leaves.forEach(l => {
 	if (leaf != l) {
 	  let repelling = l.repel(leaf);
@@ -82,11 +81,12 @@ function mouseReleased(event) {
 function *createWind(wind_) {
   let inc = 0.1;
   let target = createVector(1600, 200);
+  let xoffset = 700;
 
   while(true) {
     wind_.y = map(sin(angle), -1, 1, -600, 600);
     angle += inc;
-    wind_.x = 700;
+    wind_.x = xoffset;
 
     target.normalize();
     yield target;
